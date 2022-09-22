@@ -2,14 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class MeditateMusicSessions extends StatefulWidget {
-  const MeditateMusicSessions({Key? key}) : super(key: key);
+class MusicSessionPlay extends StatefulWidget {
+  const MusicSessionPlay({Key? key}) : super(key: key);
 
   @override
-  State<MeditateMusicSessions> createState() => _ScreenState();
+  State<MusicSessionPlay> createState() => _ScreenState();
 }
 
-class _ScreenState extends State<MeditateMusicSessions> {
+class _ScreenState extends State<MusicSessionPlay> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
