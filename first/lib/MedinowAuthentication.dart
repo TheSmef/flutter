@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 
-class Screen2 extends StatefulWidget {
-  const Screen2({Key? key}) : super(key: key);
+class MedinowAuthentication extends StatefulWidget {
+  const MedinowAuthentication({Key? key}) : super(key: key);
 
   @override
-  State<Screen2> createState() => _ScreenState();
+  State<MedinowAuthentication> createState() => _ScreenState();
 }
 
-class _ScreenState extends State<Screen2> {
+class _ScreenState extends State<MedinowAuthentication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

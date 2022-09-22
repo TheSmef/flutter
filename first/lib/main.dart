@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:first/screen1.dart';
-import 'package:first/screen2.dart';
-import 'package:first/screen3.dart';
+import 'package:first/MeditateMusicSessions.dart';
+import 'package:first/MedinowAuthentication.dart';
+import 'package:first/MusicSessionPlay.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,9 +16,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Screen1(),
-      // home: const Screen2(),
-      // home: const Screen3(),
+      home: const MeditateMusicSessions(),
+      // home: const MedinowAuthentication(),
+      // home: const MusicSessionPlay(),
       theme: ThemeData(),
       darkTheme: ThemeData(),
     );
