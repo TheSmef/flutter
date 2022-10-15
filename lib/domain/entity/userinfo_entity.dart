@@ -4,7 +4,7 @@ class UserInfoEntity{
   late String first_name;
   late String otch;
 
-  UserInfoEntity({required this.last_name,
+  UserInfoEntity({required this.id,required this.last_name,
    required this.first_name,
    required this.otch});
 }
