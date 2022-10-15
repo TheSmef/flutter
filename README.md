@@ -1,16 +1,43 @@
-# pr
+## ПРАКТИЧЕСКАЯ РАБОТА №1
+Тема: Работа с базой данных
+Цель работы: закрепление изученного материала по работе с созданием базы данных с 9-ю таблицами на разных платформах.
+Ход работы:
 
-A new Flutter project.
+![image](https://user-images.githubusercontent.com/92712495/195981331-3677745d-d158-4ffe-a39b-b1235c95998d.png)
 
-## Getting Started
+Рисунок 1 – Логическая схема базы данных
 
-This project is a starting point for a Flutter application.
+Для реализации базы данных на платформах Linux, Windows и MacOs использовался подобный мобильным приложениям способ, для открытия и создания базы данных использовался databaseFactoryFfi, но принимаемые параметры (методы, версия, пусть до базы данных) остались такими же.
 
-A few resources to get you started if this is your first Flutter project:
+  ![image](https://user-images.githubusercontent.com/92712495/195981306-aa2e70d4-50ea-4d45-94e4-3f7a6e5afb20.png)
+  
+Рисунок 2 – Метод init для кросплатформы
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ ![image](https://user-images.githubusercontent.com/92712495/195981341-5f77cbdb-b4c9-4cee-893f-9201f0b1b877.png)
+ 
+Рисунок 3 – Состав таблиц
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+При реализации структуры проекта было реализованы папки: common, core, model, domain и presentation.
+
+ ![image](https://user-images.githubusercontent.com/92712495/195981349-b51c5b9a-17dc-4870-82df-a78dbf192909.png)
+ 
+Рисунок 4 – Структура проекта
+
+При реализации класса Entity для всех моделей были реализованы конструкторы и поля, также для класса роли была реализована энумерация для значений.
+
+ ![image](https://user-images.githubusercontent.com/92712495/195981358-138e4b64-332b-4a01-83a2-d2259f11d5e2.png)
+ 
+Рисунок 5 – Пример реализации класса Entity
+
+Внутри как такового класса модели помимо того, что было реализовано в классе Entity были реализованы методы конвертации значения экземпляра в Map (ключ, значение) и обратная конвертация из Map.
+
+ ![image](https://user-images.githubusercontent.com/92712495/195981363-e9ecde7e-ed8d-4844-9503-572328d32513.png)
+ 
+Рисунок 6 – Пример реализации класса модели
+
+![image](https://user-images.githubusercontent.com/92712495/195981371-8fd6a454-6cfb-49b2-8fc0-0812fc2b5c55.png)
+
+Рисунок 7 – Реализованная база данных 
+
+Вывод: была реализована база данных, состоящая из 9-ти таблиц, были реализованы механизмы взаимодействия (обновления) с данной базой данных на различных платформах. Были закреплены знания о реализации баз данных sqllite на Flutter.
+
