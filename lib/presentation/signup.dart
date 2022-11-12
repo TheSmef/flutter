@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                     if (value.length < 3) {
                       return 'Фамилия должена быть не менее 3 символов';
                     }
-                    if (value.contains(RegExp('[!"№;%:?*()]0-9'))) {
+                    if (value.contains(RegExp('[!"№;%:?*()0-9]'))) {
                       return 'Фамилия не может включать в себя символы !"№;%:?*()0-9';
                     }
                     return null;
@@ -72,7 +72,7 @@ class _SignUpState extends State<SignUp> {
                     if (value.length < 3) {
                       return 'Имя должно быть не менее 3 символов';
                     }
-                    if (value.contains(RegExp('[!"№;%:?*()]0-9'))) {
+                    if (value.contains(RegExp('[!"№;%:?*()0-9]'))) {
                       return 'Имя не может включать в себя символы !"№;%:?*()0-9';
                     }
                     return null;
@@ -93,7 +93,7 @@ class _SignUpState extends State<SignUp> {
                     if (value.length < 3) {
                       return 'Отчество должено быть не менее 3 символов';
                     }
-                    if (value.contains(RegExp('[!"№;%:?*()]0-9'))) {
+                    if (value.contains(RegExp('[!"№;%:?*()0-9]'))) {
                       return 'Отчество не может включать в себя символы !"№;%:?*()0-9';
                     }
                     return null;
