@@ -18,8 +18,7 @@ class AuthRepositoryImlp implements AuthRepositories {
   String get tableInfo => DataBaseRequest.tableUserInfo;
 
   @override
-  Future<Either<String, RoleEnum>> signIn(
-      String login, String password) async {
+  Future<Either<String, RoleEnum>> signIn(String login, String password) async {
     try {
       var user = await _db.query(
         table,
@@ -37,13 +36,13 @@ class AuthRepositoryImlp implements AuthRepositories {
 
       return Right(RoleEnum.values[(user.first['id_role'] as int) - 1]);
     } on DatabaseException catch (e) {
-      const Left("Произошла неизвестная ошибка, попробуйте позже");
+      return const Left("Произошла неизвестная ошибка, попробуйте позже");
     }
-    return const Left("Произошла неизвестная ошибка, попробуйте позже");
   }
 
   @override
-  Future<Either<String, bool>> signUp(String login, String password, String lastname, String firstname, String otch) async {
+  Future<Either<String, bool>> signUp(String login, String password,
+      String lastname, String firstname, String otch) async {
     try {
       var user = await _db.query(
         table,
@@ -63,21 +62,20 @@ class AuthRepositoryImlp implements AuthRepositories {
           id_role: RoleEnum.user.id,
         ).toMap(),
       );
-      if (id != 0){
+      if (id != 0) {
         await _db.insert(
-        tableInfo,
-        UserInfo(
-          id: id,
-          last_name: lastname,
-          first_name: firstname,
-          otch: otch,
-        ).toMap(),
-      );
+          tableInfo,
+          UserInfo(
+            id: id,
+            last_name: lastname,
+            first_name: firstname,
+            otch: otch,
+          ).toMap(),
+        );
       }
       return const Right(true);
     } on DatabaseException catch (e) {
       return const Left("Непредвиденная ошибка, попробуйте позже");
     }
   }
-
 }

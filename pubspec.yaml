@@ -38,6 +38,7 @@ dependencies:
   dartz: ^0.10.1
 
   flutter_bloc: ^8.1.1
+  
 
   sqflite: ^2.1.0 #База данных
   sqflite_common_ffi: ^2.1.1+1 #Дополнительный пакет базы данных для остальных платформ

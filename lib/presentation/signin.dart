@@ -1,5 +1,8 @@
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pr/domain/Cubit/cubit/auth_status_cubit.dart';
 import 'package:pr/presentation/widgets/custom_button.dart';
 import 'package:pr/presentation/widgets/text_field_obscure.dart';
 
@@ -45,6 +48,10 @@ class _SignInState extends State<SignIn> {
                 const Expanded(child: SizedBox()),
                 TextFormField(
                   controller: _loginController,
+                  onChanged: (value) {
+                    context.read<AuthStatusCubit>().EnableAuth(
+                        _loginController.text, _passwordController.text);
+                  },
                   validator: (value) {
                     if (!_isValid) {
                       return null;
@@ -69,6 +76,10 @@ class _SignInState extends State<SignIn> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _passwordController,
+                  onChanged: (value) {
+                    context.read<AuthStatusCubit>().EnableAuth(
+                        _loginController.text, _passwordController.text);
+                  },
                   validator: (value) {
                     if (!_isValid) {
                       return null;
@@ -97,13 +108,23 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                CustomButton(
-                  content: 'Войти',
-                  onPressed: () {
-                    _isValid = true;
-                    if (_key.currentState!.validate()) {
-                      signIn();
-                    } else {}
+                BlocBuilder<AuthStatusCubit, AuthStatusState>(
+                  builder: (context, state) {
+                    if (state is AuthDisabled) {
+                      return const Center(
+                          child:
+                              Text("Введите логин и пароль для авторизации"));
+                    } else {
+                      return CustomButton(
+                        content: 'Войти',
+                        onPressed: () {
+                          _isValid = true;
+                          if (_key.currentState!.validate()) {
+                            signIn();
+                          } else {}
+                        },
+                      );
+                    }
                   },
                 ),
                 const Expanded(flex: 3, child: SizedBox()),
@@ -129,7 +150,7 @@ class _SignInState extends State<SignIn> {
             ),
           ),
         ),
-      ),
+      )
     );
   }
 
@@ -149,8 +170,8 @@ class _SignInState extends State<SignIn> {
       switch (r) {
         case RoleEnum.admin:
           {
-          Navigator.pushNamedAndRemoveUntil(
-              context, UrlPage.admin, (route) => false);
+            Navigator.pushNamedAndRemoveUntil(
+                context, UrlPage.admin, (route) => false);
             break;
           }
         case RoleEnum.user:

@@ -1,10 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pr/url_page.dart';
 import 'package:pr/presentation/widgets/custom_button.dart';
 import 'package:pr/presentation/widgets/text_field_obscure.dart';
 
 import '../data/repository/auth_repository_impl.dart';
+import '../domain/Cubit/cubit/reg_status_cubit.dart';
 import '../domain/usercases/auth.dart';
 
 class SignUp extends StatefulWidget {
@@ -44,6 +45,10 @@ class _SignUpState extends State<SignUp> {
                 const Spacer(),
                 TextFormField(
                   controller: _lastnameController,
+                    onChanged: (value) {
+                      context.read<RegStatusCubit>().Enable(
+                          _firstnameController.text, _lastnameController.text, _otchController.text ,_loginController.text, _passwordController.text);
+                    },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Поле фамилия пустое';
@@ -65,6 +70,10 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _firstnameController,
+                  onChanged: (value) {
+                      context.read<RegStatusCubit>().Enable(
+                          _firstnameController.text, _lastnameController.text, _otchController.text ,_loginController.text, _passwordController.text);
+                    },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Поле имя пустое';
@@ -86,6 +95,10 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _otchController,
+                  onChanged: (value) {
+                      context.read<RegStatusCubit>().Enable(
+                          _firstnameController.text, _lastnameController.text, _otchController.text ,_loginController.text, _passwordController.text);
+                    },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Поле отчество пустое';
@@ -107,6 +120,10 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _loginController,
+                  onChanged: (value) {
+                      context.read<RegStatusCubit>().Enable(
+                          _firstnameController.text, _lastnameController.text, _otchController.text ,_loginController.text, _passwordController.text);
+                    },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Поле логин пустое';
@@ -128,6 +145,10 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 20),
                 TextFormField(
                   controller: _passwordController,
+                  onChanged: (value) {
+                      context.read<RegStatusCubit>().Enable(
+                          _firstnameController.text, _lastnameController.text, _otchController.text ,_loginController.text, _passwordController.text);
+                    },
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Поле пароль пустое';
@@ -152,13 +173,22 @@ class _SignUpState extends State<SignUp> {
                     border: const OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  content: 'Регистрация',
-                  onPressed: () {
-                    if (_key.currentState!.validate()) {
-                      signUp();
-                    } else {}
+                const SizedBox(height: 10),
+                BlocBuilder<RegStatusCubit, RegStatusState>(
+                  builder: (context, state) {
+                    if (state is RegDisabled) {
+                      return const Center(
+                          child: Text("Введите все данные для регистрации"));
+                    } else {
+                      return CustomButton(
+                        content: 'Регистрация',
+                        onPressed: () {
+                          if (_key.currentState!.validate()) {
+                            signUp();
+                          } else {}
+                        },
+                      );
+                    }
                   },
                 ),
                 const Spacer(flex: 3),
@@ -187,7 +217,7 @@ class _SignUpState extends State<SignUp> {
     var result = await Auth(auth).signUp(RegParams(
       lastname: _lastnameController.text,
       firstname: _firstnameController.text,
-      otch:  _otchController.text,
+      otch: _otchController.text,
       login: _loginController.text,
       password: _passwordController.text,
     ));
