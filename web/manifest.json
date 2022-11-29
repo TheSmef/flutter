@@ -1,6 +1,6 @@
 {
-    "name": "pr",
-    "short_name": "pr",
+    "name": "statemanager",
+    "short_name": "statemanager",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

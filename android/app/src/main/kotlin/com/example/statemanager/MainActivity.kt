@@ -1,4 +1,4 @@
-package com.example.pr
+package com.example.statemanager
 
 import io.flutter.embedding.android.FlutterActivity
 

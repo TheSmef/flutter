@@ -38,7 +38,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void _increment() {
     setState(() {
-      list.add("ЫЫЫЫЫЫЫЫ!!!");
       context.read<ListElementsCubit>().ElementAdd();
     });
   }
