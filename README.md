@@ -1,16 +1,35 @@
-# statemanager
+# ПРАКТИЧЕСКАЯ РАБОТА №4
+### Тема: Реализация изменения состояния при помощи Cubit
 
-A new Flutter project.
 
-## Getting Started
+### Цель работы: закрепление изученного материала посредством реализации механизма изменения состояния при помощи Cubit для считывателя с изменением темы и листа с добавлением в одном проекте.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+#### Ход работы:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Для реализации задание было реализовано 2 Cubit, один для листа, другой для самого кликера. Когда кликер производит изменения он добавляет элемента в лист и изменение состояния этого листа посредством его Cubit.
+
+![image](https://user-images.githubusercontent.com/92712495/204508951-dc537426-02fe-47d3-941c-db5b490b29d5.png)
+
+ 
+Рисунок 28 – Начальное окно
+
+![image](https://user-images.githubusercontent.com/92712495/204508988-f06e18b2-a610-4656-a5ee-bf0d7e06cccf.png)
+
+ 
+Рисунок 29 – Добавление элементов на светлой теме
+
+![image](https://user-images.githubusercontent.com/92712495/204509011-5173f77d-6c0c-4f24-93f3-42c157c8030b.png)
+
+ 
+Рисунок 30 – Изменение темы
+
+![image](https://user-images.githubusercontent.com/92712495/204509032-7fea6c30-36b0-4455-85dd-376674863756.png)
+
+ 
+Рисунок 31 – Нажатия на тёмной теме
+
+
+### Вывод: был закреплён изученный в ходе учебного занятия материал по Cubit посредством реализации механизма изменения состояния в приложении с листом и считывателем нажатий.
+
