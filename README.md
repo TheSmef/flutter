@@ -20,7 +20,7 @@
  
 Рисунок 2 – Добавление элементов на светлой теме
 
-![image](https://user-images.githubusercontent.com/92712495/204509011-5173f77d-6c0c-4f24-93f3-42c157c8030b.png)
+![image](https://user-images.githubusercontent.com/92712495/205222818-922e9d58-9b0d-4fd9-a9e1-c6398285899d.png)
 
  
 Рисунок 3 – Изменение темы
